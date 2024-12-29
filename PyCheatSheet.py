@@ -45,8 +45,6 @@ print(f"{id(a_lst)} != {id(b_lst)}")
 
 # endregion
 
-
-
 # region List Reference Copy
 lst1 = [1, [1, 1, 1], 1]
 print(f"{lst1=}: Original")
@@ -129,3 +127,12 @@ values_list = [1,2,4,5,6]
 a_dict = dict(map(lambda key,value: (key+"_", value+10), keys_list, values_list))
 print(a_dict)
 # endregion
+#region Mixed Dict and List Comprehension
+import random
+mylist = [random.randint(1, 100) for _ in range(100)]
+
+counter_dict = {
+    unique_value: [id for id,value in enumerate(mylist) if value ==unique_value]
+    for unique_value in set(mylist)}
+print(counter_dict)
+#endregion
