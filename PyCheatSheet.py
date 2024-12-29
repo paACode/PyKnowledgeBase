@@ -34,6 +34,17 @@ match x:
         print("Everything else")
 #endregion
 
+# region "is" vs "=="
+a_lst = [1,2,3,4,5]
+b_lst = [1,2,3,4,5]
+
+print(f"Conten is same:{a_lst == b_lst}")
+print(f"{a_lst=} | {b_lst=}")
+print(f"Reference is same: {a_lst is  b_lst}")
+print(f"{id(a_lst)} != {id(b_lst)}")
+
+# endregion
+
 
 
 # region List Reference Copy
