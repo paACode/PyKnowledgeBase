@@ -136,3 +136,11 @@ counter_dict = {
     for unique_value in set(mylist)}
 print(counter_dict)
 #endregion
+
+# region Open a file
+file_path = 'C:\\Users\\acker\\Documents\\Python_Workspace\\PyKnowdlegeBase\\a_file_to_read.txt'
+with open(file=file_path, mode="r") as file:
+    lines = [line.rstrip() for line in file]
+    print(lines)
+# endregion
+
