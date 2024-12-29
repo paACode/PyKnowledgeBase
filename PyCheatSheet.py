@@ -127,7 +127,8 @@ values_list = [1,2,4,5,6]
 a_dict = dict(map(lambda key,value: (key+"_", value+10), keys_list, values_list))
 print(a_dict)
 # endregion
-#region Mixed Dict and List Comprehension
+
+#region Mixed Dict and List Comprehension | "Random Value [IDs where RandomValue occurs]"
 import random
 mylist = [random.randint(1, 100) for _ in range(100)]
 
@@ -136,6 +137,19 @@ counter_dict = {
     for unique_value in set(mylist)}
 print(counter_dict)
 #endregion
+#region Mixed Dict and List Comprehension | "LineNr: Count of Whitespaces"
+file_path = 'C:\\Users\\acker\\Documents\\Python_Workspace\\PyKnowdlegeBase\\a_file_to_read.txt'
+with open(file=file_path, mode="r") as file:
+    lines = [line.rstrip() for line in file]
+
+spaces = " "
+counter = {
+    nr : line.count(spaces)
+    for nr,line in enumerate(lines) if line.count(spaces)
+}
+
+print(counter)
+#endregion ":
 
 # region Open a file
 file_path = 'C:\\Users\\acker\\Documents\\Python_Workspace\\PyKnowdlegeBase\\a_file_to_read.txt'
