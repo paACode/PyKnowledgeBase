@@ -1,21 +1,78 @@
 # region Pycharm Shortcuts
-# Execute Selection in Console: Alt+Shift+E
-# Execute Script : Shift + Fn +F10
+"""
+Execute Selection in Console: Alt+Shift+E
+Execute Script : Shift + Fn +F10
+Collapse All : CTRL + Shift + "-Button"
+Expand All: CTRL + Shift + "+Button"
+Renam Variable : Shift + F6
+"""
 # endregion
 
-# region Shallow Copy
-list_a = [1,2,3,4,5]
-list_b = list_a
-list_a.append(6)
-print(f"{list_a=} and {list_b=}")
+# region Logic Order
+result = not False or True and False
+print(result)
+result = (not False) or (True and False)
+print(result)
 # endregion
-# region Deep Copy
+
+#region Shorthand Statement
+x=29
+x = x+1 if x%2 else x
+print(x)
+#endregion
+
+#region Match Case
+x=10
+match x:
+    case 0:
+        print(0)
+    case 1:
+        print(1)
+    case 2:
+        print(2)
+    case _:
+        print("Everything else")
+#endregion
+
+
+
+# region List Reference Copy
+lst1 = [1, [1, 1, 1], 1]
+print(f"{lst1=}: Original")
+lst2 = lst1
+print(f"{lst2=}: Reference to Original")
+print("lst1[0]=0,lst1[1][0]=0 : Modifications")
+lst1[1][0] = 0 #Also changes in lst2 because only "shallow copy
+lst1[0] = 0 #
+print(f"{lst1=}: {id(lst1)=}")
+print(f"{lst2=}: {id(lst2)=}")
+# endregion
+# region List Shallow Copy
 import copy
-list_a = [1,2,3,4,5]
-list_b = copy.deepcopy(list_a)
-list_a.append(6)
-print(f"{list_a=} and {list_b=}")
+lst1 = [1, [1, 1, 1], 1]
+print(f"{lst1=}: Original")
+lst2 = copy.copy(lst1)
+print(f"{lst2=}: Shallow Copy")
+print("lst1[0]=0,lst1[1][0]=0 : Modifications")
+lst1[1][0] = 0 #Also changes in lst2 because only "shallow copy
+lst1[0] = 0 #
+print(f"{lst1=}")
+print(f"{lst2=}: Side Effect!")
 # endregion
+# region List Deep Copy
+import copy
+lst1 = [1, [1, 1, 1], 1]
+print(f"{lst1=}: Original")
+lst2 = copy.deepcopy(lst1)
+print(f"{lst2=}: Shallow Copy")
+print("lst1[0]=0,lst1[1][0]=0 : Modifications")
+lst1[1][0] = 0 #Also changes in lst2 because only "shallow copy
+lst1[0] = 0 #
+print(f"{lst1=}:")
+print(f"{lst2=}: No Side Effect")
+# endregion
+
+
 # region String Immutable
 str_a = "hello"
 id1 = id(str_a)
@@ -42,20 +99,16 @@ for idx in range(len(references1)):
 # endregion
 
 # region Check Type of an Object
-an_integer = 23
-a_float = 2.3455
-a_string = "sihfihfin"
-a_tuple = (1,2,3)
-a_dict = {"a": 1, "b":2, "c": 3}
-a_list = [1,2,3,4,5,6]
-list_with_different_values = [an_integer, a_float, a_string, a_tuple, a_dict, a_list]
+if type(112) is type(int()):
+    print("112 is an Integer")
 
-def find_datatype(_list, datatype_class):
-    for element in list_with_different_values:
-        if isinstance(element,datatype_class):
-            print(f"{element=} is of type {datatype_class}")
+if type(112) is int:
+    print("112 is an Integer")
 
-find_datatype(list_with_different_values, str)
+if isinstance(112, int):
+    print("112 is an Integer")
+
+
 # endregion
 
 # region Lambda Functions
