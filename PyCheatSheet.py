@@ -198,3 +198,43 @@ print(f"{peter_hans._company_name=}, {peter_hans._salary}")
 print(f"{beat_schlatter._company_name=}, {beat_schlatter._salary}")
 print(f"{peter_lokomotivo._company_name=}, {peter_lokomotivo._salary}")
 # endregion
+
+#region OOP Inheritance and Super
+class Mother:
+    def __init__(self, name, eye_color, size):
+        self._eye_color = eye_color
+        self._size = size
+        self._name = name
+
+    def introduce(self):
+        print(f"Hello I am {self._name} and I am {self._size} tall and have {self._eye_color} eyes")
+
+    def sing(self):
+        print("Money money money, must be funny, in a rich mens world")
+
+class Daughter(Mother):
+    def sing(self):
+        print("To the left to the left!")
+    pass
+
+class Grandson(Daughter, Mother):
+    def __init__(self, name, eye_color, size, favourite_band):
+        super().__init__(name, eye_color, size) # We need super if we want to extend the constructor
+        self._favourite_band = favourite_band
+
+    def introduce(self):
+        super().introduce()
+        print(f"And my favourite band is {self._favourite_band}")
+
+
+layla = Daughter(name="Layla", eye_color="blue", size="168")
+#If there is no constructor __init() it takes the one from mother
+
+layla.sing()
+
+peter = Grandson(name="Peter", eye_color="blue", size="186", favourite_band="Metallica")
+peter.introduce() #Peter also want to say what his favourite band is
+peter.sing() #As Grandson has no sing() method it first checks in class Daughter if there is a sing function
+# If not it goes to Mother
+
+#endregion
