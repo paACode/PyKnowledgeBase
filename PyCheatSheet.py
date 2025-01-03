@@ -198,7 +198,6 @@ print(f"{peter_hans._company_name=}, {peter_hans._salary}")
 print(f"{beat_schlatter._company_name=}, {beat_schlatter._salary}")
 print(f"{peter_lokomotivo._company_name=}, {peter_lokomotivo._salary}")
 # endregion
-
 #region OOP Inheritance and Super
 class Mother:
     def __init__(self, name, eye_color, size):
@@ -236,5 +235,34 @@ peter = Grandson(name="Peter", eye_color="blue", size="186", favourite_band="Met
 peter.introduce() #Peter also want to say what his favourite band is
 peter.sing() #As Grandson has no sing() method it first checks in class Daughter if there is a sing function
 # If not it goes to Mother
+
+#endregion
+
+#region *args and **kwars
+
+def print_all_args_and_kwargs(*args, **kwargs):
+    print(f"{args=}, {type(args)}")
+    for element in args:
+        print(element)
+    print(f"{kwargs=}, {type(kwargs)}")
+    for key,value in kwargs.items():
+        print(f"{key=}, {value=}")
+
+print_all_args_and_kwargs(2,3,4,5,6,7,8,12,pos1=12,pos2=25, pos5=6)
+
+#endregion
+
+#region Iterate over Dictionary
+my_dict = {"a":12, "b": 13, "c": 14, "d":15}
+
+for key,value in my_dict.items():
+    print(f"{key=}, {value=}")
+
+#endregion
+#region Iterate over List with enumerate
+my_list = ["ferrari", "alpha", "tesla", "bmw"]
+
+for key,value in enumerate(my_list):
+    print(f"{key=}, {value=}")
 
 #endregion
