@@ -158,3 +158,43 @@ with open(file=file_path, mode="r") as file:
     print(lines)
 # endregion
 
+# region OOP class method
+
+class Employee:
+    __company_name = "No Name"
+    counter =0
+    def __init__(self, name, salary):
+        self.increment_counter()
+        #Employee.increment_counter()
+        self._name = name
+        self._salary = salary
+        self._company_name = Employee.company_name
+
+    @classmethod # Set a company we currently want to edit
+    def set_company_name(cls, name):
+        cls.company_name = name
+
+    @classmethod
+    def increment_counter(cls):
+        cls.counter +=1
+        #Employee.counter +=1
+
+Employee.set_company_name("ABB") # Can call Classmethod without an instance of Employee
+hans_muster = Employee(name="Hans Muster", salary= "78k")
+print(f"{Employee.counter=}")
+peter_hans = Employee(name="Peter Hans", salary= "64k")
+print(f"{Employee.counter=}")
+
+Employee.set_company_name("Siemems")
+beat_schlatter = Employee(name="Beat Schlatter", salary= "12k")
+print(f"{Employee.counter=}")
+
+beat_schlatter.set_company_name("SBB") # This is the same as if we would call Employee.set_company_name("")
+peter_lokomotivo = Employee(name="Peter Lokomotivo", salary= "12k")
+
+
+print(f"{hans_muster._company_name=}, {hans_muster._salary}")
+print(f"{peter_hans._company_name=}, {peter_hans._salary}")
+print(f"{beat_schlatter._company_name=}, {beat_schlatter._salary}")
+print(f"{peter_lokomotivo._company_name=}, {peter_lokomotivo._salary}")
+# endregion
