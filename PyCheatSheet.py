@@ -261,6 +261,12 @@ def print_all_args_and_kwargs(*args, **kwargs):
 
 print_all_args_and_kwargs(2,3,4,5,6,7,8,12,pos1=12,pos2=25, pos5=6)
 
+kwargs_example = {"a":1,"b":2, "c":3}
+args_example = [11,12,13,14,15]
+
+print_all_args_and_kwargs(*args_example, **kwargs_example)
+
+
 #endregion
 
 #region Iterate over Dictionary
