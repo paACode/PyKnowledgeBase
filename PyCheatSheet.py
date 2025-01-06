@@ -120,13 +120,34 @@ if isinstance(112, int):
 
 # endregion
 
-# region Lambda Functions
+#region Lambda Functions
+divisible_by_3 = lambda nr: nr%3==0 # Lambda Function definition
+print(divisible_by_3(3)) # Call by Function Name
+print((lambda nr: nr%3==0)(3)) # Direct Call
+#endregion
+
+#region Lambda Functions with Filter
+divisible_by_3 = lambda nr: nr%3==0 # Lambda Function definition
+nr_list = list(range(0,20+1,1))
+nr_list_div_by_3 = list(filter(divisible_by_3, nr_list))
+print(nr_list_div_by_3)
+#endregion
+#region Lambda Functions with Sorted: Only sort selection in list
+divisible_by_3 = lambda nr: nr%3==0 # Lambda Function definition
+nr_list = list(range(0,20+1,1))
+nr_list_div_by_3_descending = sorted(nr_list, key=divisible_by_3, reverse=False) # Only sorts values that are div by 3
+print(nr_list_div_by_3_descending)
+#endregion
+
+
+# region Lambda Functions with Map
 keys_list = ["a","b","c","d","e"]
 values_list = [1,2,4,5,6]
 
 a_dict = dict(map(lambda key,value: (key+"_", value+10), keys_list, values_list))
 print(a_dict)
 # endregion
+
 
 #region Dict Comprehension with Zip
 car = ["BMW", "Audi", "Porsche", "Tesla"]
