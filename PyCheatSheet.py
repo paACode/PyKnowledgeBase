@@ -128,6 +128,17 @@ a_dict = dict(map(lambda key,value: (key+"_", value+10), keys_list, values_list)
 print(a_dict)
 # endregion
 
+#region Dict Comprehension with Zip
+car = ["BMW", "Audi", "Porsche", "Tesla"]
+car_type = ["SUV", "Combi", "Sport", "SUV"]
+car_dict = {key:value for key,value in zip(car, car_type)}
+#endregion
+#region List comprehension
+nr_list = [1,2,3,4,5,6,7,8,9,10,11,12]
+only_even_nr = [nr for nr in nr_list if (nr%2 == 0)]
+print(only_even_nr)
+#endregion
+
 #region Mixed Dict and List Comprehension | "Random Value [IDs where RandomValue occurs]"
 import random
 mylist = [random.randint(1, 100) for _ in range(100)]
