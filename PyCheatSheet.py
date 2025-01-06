@@ -8,6 +8,14 @@ Renam Variable : Shift + F6
 """
 # endregion
 
+# %% Run isolated sections 1
+print("hello")
+print("you")
+# %% Run isolated sections 2
+print("hello")
+print("world")
+# %%
+
 # region Logic Order
 result = not False or True and False
 print(result)
@@ -80,6 +88,7 @@ lst1[0] = 0 #
 print(f"{lst1=}:")
 print(f"{lst2=}: No Side Effect")
 # endregion
+
 
 
 # region String Immutable
